@@ -46,8 +46,9 @@ export async function chatWithRAG({
   const vectorStore = await QdrantVectorStore.fromExistingCollection(
     embeddings,
     {
-      url: "http://localhost:6333",
-      collectionName: "notellm-collection",
+   url: process.env.QDRANT_URL,
+      apiKey: process.env.QDRANT_API_KEY,
+      collectionName: "contextly",
     }
   );
 
